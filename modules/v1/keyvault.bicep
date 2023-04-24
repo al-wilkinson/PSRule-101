@@ -36,13 +36,6 @@ param secretsPermissions array = [
 ])
 param skuName string = 'standard'
 
-@description('Specifies the name of the secret that you want to create.')
-param secretName string
-
-@description('Specifies the value of the secret that you want to create.')
-@secure()
-param secretValue string
-
 resource kv 'Microsoft.KeyVault/vaults@2021-11-01-preview' = {
   name: keyVaultName
   location: location
@@ -74,10 +67,3 @@ resource kv 'Microsoft.KeyVault/vaults@2021-11-01-preview' = {
   }
 }
 
-resource secret 'Microsoft.KeyVault/vaults/secrets@2021-11-01-preview' = {
-  parent: kv
-  name: secretName
-  properties: {
-    value: secretValue
-  }
-}
