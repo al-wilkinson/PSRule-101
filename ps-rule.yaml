@@ -2,6 +2,9 @@
 configuration:
   AZURE_BICEP_FILE_EXPANSION: true
 
-include:
-  path:
-    - modules/
+input:
+  pathIgnore:
+    # Exclude all files
+    - '*'
+    # Except our minimal key vault one
+    - '!**/kvt-minimal.bicep'
