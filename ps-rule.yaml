@@ -1,3 +1,7 @@
 
 configuration:
   AZURE_BICEP_FILE_EXPANSION: true
+
+include:
+  path:
+    - modules/
